@@ -1,0 +1,33 @@
+{
+  "name": "hubot-lastfm-notifier",
+  "version": "1.0.0",
+  "description": "A hubot script to post scrobbles of followed users within a chat application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kwandrews7/hubot-lastfm-notifier.git"
+  },
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "lastfm",
+    "last.fm",
+    "notifier",
+    "hubot-lastfm",
+    "lastfm-notifier",
+    "music"
+  ],
+  "author": "Kyle Andrews <https://github.com/kwandrews7>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kwandrews7/hubot-lastfm-notifier/issues"
+  },
+  "homepage": "https://github.com/kwandrews7/hubot-lastfm-notifier#readme",
+  "dependencies": {
+    "cron": "^1.7.0",
+    "lodash": "^4.17.11"
+  }
+}
