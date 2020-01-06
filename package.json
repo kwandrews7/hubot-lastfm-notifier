@@ -1,6 +1,6 @@
 {
   "name": "hubot-lastfm-notifier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A hubot script to post scrobbles of followed users within a chat application.",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/kwandrews7/hubot-lastfm-notifier#readme",
   "dependencies": {
-    "cron": "^1.7.0",
-    "lodash": "^4.17.11"
+    "cron": "^1.7.2",
+    "lodash": "^4.17.15"
   }
 }

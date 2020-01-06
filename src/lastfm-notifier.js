@@ -128,7 +128,7 @@ function checkUserForNewActivity(robot, user) {
       let json = JSON.parse(body);
       robot.logger.info(`LastFm-Notifier <${user}>: Successfully parsed Last.fm API response.`);
       let track = json.recenttracks.track[0];
-      if (track) {
+      if (track && track['@attr'].nowplaying) {
         robot.logger.debug(`LastFm-Notifier <${user}>: Request completed successfully.`);
         let songId = songIdentifier(track);
         if (robot.brain.data.last_fm_notifier_users[user] && robot.brain.data.last_fm_notifier_users[user] === songId) {

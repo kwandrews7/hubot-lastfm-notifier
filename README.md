@@ -37,6 +37,10 @@ file (you may need to create this file).
 
 ## Release Notes
 
+### 1.0.1
+
+* Only notifies on "now playing" to prevent bot from resending previous scrobbles when Last.fm's API is running behind and songs don't immediately show up in history after played.
+
 ### 1.0.0
 
 * Initial release. 
