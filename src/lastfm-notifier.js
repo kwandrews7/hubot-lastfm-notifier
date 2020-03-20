@@ -128,7 +128,15 @@ function checkUserForNewActivity(robot, user) {
       let json = JSON.parse(body);
       robot.logger.info(`LastFm-Notifier <${user}>: Successfully parsed Last.fm API response.`);
       let track = json.recenttracks.track[0];
-      if (track && track['@attr'].nowplaying) {
+      if (track && track['@attr'] && track['@attr'].nowplaying) {
+        if (json.recenttracks.track.length > 1) {
+          track = json.recenttracks.track[1];
+        } else {
+          track = null;
+          robot.logger.debug(`LastFm-Notifier <${user}>: We picked up a song in now playing, we'll wait until it shows up as a completed listen to report it.`);
+        }
+      }
+      if (track) {
         robot.logger.debug(`LastFm-Notifier <${user}>: Request completed successfully.`);
         let songId = songIdentifier(track);
         if (robot.brain.data.last_fm_notifier_users[user] && robot.brain.data.last_fm_notifier_users[user] === songId) {
@@ -142,7 +150,7 @@ function checkUserForNewActivity(robot, user) {
           robot.messageRoom(notificationChannelId, `🎧 ${user}: ${getTrackArtist(track)} - ${getTrackName(track)}`);
         }
       } else {
-        robot.logger.info('LastFm-Notifier <${user}>: Nobody is scrobbling right now. :( Maybe later.');
+        robot.logger.debug(`LastFm-Notifier <${user}>: Nobody is scrobbling right now. :( Maybe later.`);
       }
     });
 }

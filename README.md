@@ -37,6 +37,11 @@ file (you may need to create this file).
 
 ## Release Notes
 
+### 1.0.2
+
+* 1.0.1 tried to rework the scans to only pick up songs that were being actively listened to (i.e: Now Playing). This resulted in several clients no longer reporting listens as several clients wait until a song is mostly played and then just report the played song. 
+* 1.0.2 will filter out the "now playing" track and interact only with completed listens. This should prevent the previous 1.0.0 bug where songs would flip around as the song changed. And it should also allow for clients that only report listens.
+
 ### 1.0.1
 
 * Only notifies on "now playing" to prevent bot from resending previous scrobbles when Last.fm's API is running behind and songs don't immediately show up in history after played.
